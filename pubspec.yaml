@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   connectivity_plus: ^1.0.1
   flutter_bloc: ^7.0.0
+  equatable: ^2.0.2
 
 dev_dependencies:
   flutter_test:
