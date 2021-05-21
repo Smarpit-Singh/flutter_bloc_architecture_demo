@@ -12,12 +12,15 @@ import 'logic/cubit/internet_cubit.dart';
 
 void main() async {
 
+  ///Initialize
   WidgetsFlutterBinding.ensureInitialized();
 
+  ///Get storage directory
   HydratedBloc.storage = await HydratedStorage.build(
       storageDirectory: await getApplicationDocumentsDirectory(),
   );
 
+  ///Attach observer to bloc
   Bloc.observer = AppBlocObserver();
 
   runApp(MyApp(
