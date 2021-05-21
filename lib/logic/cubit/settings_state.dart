@@ -2,15 +2,15 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
 class SettingsState extends Equatable {
-  final bool appNotification;
-  final bool emailNotification;
+  final bool? appNotification;
+  final bool? emailNotification;
 
   SettingsState({
-    @required this.appNotification,
-    @required this.emailNotification,
+    required this.appNotification,
+    required this.emailNotification,
   });
 
-  SettingsState copyWith({bool appNotification, bool emailNotification}) {
+  SettingsState copyWith({bool? appNotification, bool? emailNotification}) {
     return SettingsState(
       appNotification: appNotification ?? this.appNotification,
       emailNotification: emailNotification ?? this.emailNotification,
@@ -19,8 +19,8 @@ class SettingsState extends Equatable {
 
   @override
   List<Object> get props => [
-        appNotification,
-        emailNotification,
+        appNotification!,
+        emailNotification!,
       ];
 
   @override

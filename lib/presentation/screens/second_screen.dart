@@ -4,10 +4,10 @@ import 'package:flutter_bloc_architecture_demo/logic/cubit/counter_cubit.dart';
 import 'package:flutter_bloc_architecture_demo/logic/cubit/counter_state.dart';
 
 class SecondScreen extends StatefulWidget {
-  SecondScreen({Key key, this.title, this.color}) : super(key: key);
+  SecondScreen({Key? key, this.title, this.color}) : super(key: key);
 
-  final String title;
-  final Color color;
+  final String? title;
+  final Color? color;
 
   @override
   _SecondScreenState createState() => _SecondScreenState();
@@ -19,7 +19,7 @@ class _SecondScreenState extends State<SecondScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: widget.color,
-        title: Text(widget.title),
+        title: Text(widget.title!),
       ),
       body: Center(
         child: Column(
@@ -48,12 +48,12 @@ class _SecondScreenState extends State<SecondScreen> {
                 }
               },
               builder: (context, state) {
-                if (state.counterValue < 0) {
+                if (state.counterValue! < 0) {
                   return Text(
                     'BRR, NEGATIVE ' + state.counterValue.toString(),
                     style: Theme.of(context).textTheme.headline4,
                   );
-                } else if (state.counterValue % 2 == 0) {
+                } else if (state.counterValue! % 2 == 0) {
                   return Text(
                     'YAAAY ' + state.counterValue.toString(),
                     style: Theme.of(context).textTheme.headline4,

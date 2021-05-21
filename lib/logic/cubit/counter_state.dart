@@ -1,15 +1,18 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 
-class CounterState {
-  int counterValue;
-  bool wasIncremented;
+class CounterState extends Equatable {
+  int? counterValue;
+  bool? wasIncremented;
 
   CounterState({
-    @required this.counterValue,
+    required this.counterValue,
     this.wasIncremented,
-  });
+  }) {
+    counterValue = 0;
+    wasIncremented = true;
+  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -18,11 +21,9 @@ class CounterState {
     };
   }
 
-  factory CounterState.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
+  factory CounterState.fromMap(Map<String, dynamic>? map) {
     return CounterState(
-      counterValue: map['counterValue'],
+      counterValue: map!['counterValue'],
       wasIncremented: map['wasIncremented'],
     );
   }
@@ -31,4 +32,7 @@ class CounterState {
 
   factory CounterState.fromJson(String source) =>
       CounterState.fromMap(json.decode(source));
+
+  @override
+  List<Object> get props => [this.counterValue!, this.wasIncremented!];
 }

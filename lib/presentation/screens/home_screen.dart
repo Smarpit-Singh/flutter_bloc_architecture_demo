@@ -9,10 +9,10 @@ import 'package:flutter_bloc_architecture_demo/logic/cubit/internet_cubit.dart';
 import 'package:flutter_bloc_architecture_demo/logic/cubit/internet_state.dart';
 
 class HomeScreen extends StatefulWidget {
-  final String title;
-  final Color color;
+  final String? title;
+  final Color? color;
 
-  HomeScreen({Key key, this.title, this.color}) : super(key: key);
+  HomeScreen({Key? key, this.title, this.color}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: widget.color,
-          title: Text(widget.title),
+          title: Text(widget.title!),
           actions: [
             IconButton(
               icon: Icon(Icons.settings),
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Wi-Fi',
                       style: Theme.of(cubitContext)
                           .textTheme
-                          .headline3
+                          .headline3!
                           .copyWith(color: Colors.green),
                     );
                   } else if (state is InternetConnected &&
@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Mobile',
                       style: Theme.of(cubitContext)
                           .textTheme
-                          .headline3
+                          .headline3!
                           .copyWith(color: Colors.red),
                     );
                   } else if (state is InternetDisconnected) {
@@ -70,7 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'Disconnected',
                       style: Theme.of(cubitContext)
                           .textTheme
-                          .headline3
+                          .headline3!
                           .copyWith(color: Colors.grey),
                     );
                   }
@@ -82,12 +82,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BlocConsumer<CounterCubit, CounterState>(
                   builder: (counterCubitContext1, state1) {
-                if (state1.counterValue < 0) {
+                if (state1.counterValue! < 0) {
                   return Text(
                     'BRR, NEGATIVE ' + state1.counterValue.toString(),
                     style: Theme.of(counterCubitContext1).textTheme.headline4,
                   );
-                } else if (state1.counterValue % 2 == 0) {
+                } else if (state1.counterValue! % 2 == 0) {
                   return Text(
                     'YAAAY ' + state1.counterValue.toString(),
                     style: Theme.of(counterCubitContext1).textTheme.headline4,

@@ -5,7 +5,7 @@ import 'package:flutter_bloc_architecture_demo/presentation/screens/settings_scr
 import 'package:flutter_bloc_architecture_demo/presentation/screens/third_screen.dart';
 
 class AppRouter {
-  Route onGenerateRoute(RouteSettings settings) {
+  Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(

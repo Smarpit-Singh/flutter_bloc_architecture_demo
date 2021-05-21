@@ -10,7 +10,7 @@ class InternetConnected extends InternetState { ///Connected state
   final ConnectionType type;
 
   InternetConnected({
-    @required this.type,
+    required this.type,
   });
 }
 

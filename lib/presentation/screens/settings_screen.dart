@@ -28,14 +28,14 @@ class SettingsScreen extends StatelessWidget {
             child: Column(
               children: [
                 SwitchListTile(
-                  value: s.appNotification,
+                  value: s.appNotification!,
                   onChanged: (v) {
                     c.read<SettingsCubit>().toggleAppNotification(v);
                   },
                   title: Text('App Notification'),
                 ),
                 SwitchListTile(
-                  value: s.emailNotification,
+                  value: s.emailNotification!,
                   onChanged: (v) {
                     c.read<SettingsCubit>().toggleEmailNotification(v);
                   },

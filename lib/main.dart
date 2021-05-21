@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'logic/cubit/internet_cubit.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
 
   HydratedBloc.storage = await HydratedStorage.build(
@@ -30,9 +31,9 @@ class MyApp extends StatelessWidget {
   final Connectivity connectivity;
 
   MyApp({
-    Key key,
-    @required this.appRouter,
-    @required this.connectivity,
+    Key? key,
+    required this.appRouter,
+    required this.connectivity,
   }) : super(key: key);
 
   @override
